@@ -170,6 +170,26 @@ if (firebaseConfig.apiKey) {
 
 let SAVED={};
 
+function serializeForFirebase(obj) {
+  if (typeof obj !== 'object' || obj === null) return obj;
+  const clean = {};
+  for (const key of Object.keys(obj)) {
+    const cleanKey = key.replace(/\./g, '_DOT_');
+    clean[cleanKey] = obj[key];
+  }
+  return clean;
+}
+
+function deserializeFromFirebase(obj) {
+  if (typeof obj !== 'object' || obj === null) return obj;
+  const clean = {};
+  for (const key of Object.keys(obj)) {
+    const origKey = key.replace(/_DOT_/g, '.');
+    clean[origKey] = obj[key];
+  }
+  return clean;
+}
+
 async function loadSaved(){
   if (!db) {
     try{
@@ -182,7 +202,7 @@ async function loadSaved(){
   db.ref('calculator_state').on('value', (snapshot) => {
     const data = snapshot.val();
     if (data) {
-      SAVED = data;
+      SAVED = deserializeFromFirebase(data);
       syncUIWithSaved();
       showSaveStatus(`Sincronizado automaticamente às ${new Date().toLocaleTimeString('pt-BR')}`);
     }
@@ -259,7 +279,7 @@ function persistCard(card,ind,idx){
   clearTimeout(persistTimeout);
   persistTimeout = setTimeout(async () => {
     try {
-      await db.ref('calculator_state').set(SAVED);
+      await db.ref('calculator_state').set(serializeForFirebase(SAVED));
       showSaveStatus(`Sincronizado às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`);
     } catch(e) {
       showSaveStatus('Falha ao sincronizar');
@@ -306,7 +326,7 @@ async function importBackupFile(file){
       if (!db) {
         localStorage.setItem(STORAGE_KEY,JSON.stringify(SAVED));
       } else {
-        await db.ref('calculator_state').set(SAVED);
+        await db.ref('calculator_state').set(serializeForFirebase(SAVED));
       }
       
       syncUIWithSaved();
@@ -352,8 +372,8 @@ async function restoreHistory(id) {
     const snapshot = await db.ref('calculator_history/' + id).once('value');
     const item = snapshot.val();
     if (!item) throw new Error("Versão não encontrada");
-    SAVED = item.data;
-    await db.ref('calculator_state').set(SAVED);
+    SAVED = deserializeFromFirebase(item.data);
+    await db.ref('calculator_state').set(serializeForFirebase(SAVED));
     syncUIWithSaved();
     document.getElementById('historyModal').style.display='none';
     showSaveStatus('Versão anterior restaurada');
@@ -369,7 +389,7 @@ async function saveCurrentToHistory() {
     btn.textContent = 'Salvando...';
     btn.disabled = true;
     await db.ref('calculator_history').push({
-      data: SAVED,
+      data: serializeForFirebase(SAVED),
       created_at: new Date().toISOString()
     });
     await loadHistoryList();
