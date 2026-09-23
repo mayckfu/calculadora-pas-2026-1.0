@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/Calculadora_PAS_2026_DigiSUS_AUTOSAVE.html"
+    }
+  ]
+}
