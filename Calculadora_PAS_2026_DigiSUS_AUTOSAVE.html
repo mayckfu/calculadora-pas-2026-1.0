@@ -15,91 +15,22 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica
 header{background:#fff;border-bottom:1px solid var(--line);padding:20px 16px;position:sticky;top:0;z-index:5}
 .wrap{max-width:1680px;width:96%;margin:auto}
 h1{font-size:23px;margin:0 0 5px} .sub{font-size:13px;color:var(--muted);line-height:1.45}
-.tools{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
-button,select{min-height:42px;border-radius:8px;font-size:14px}
-button{border:0;padding:9px 13px;font-weight:700;cursor:pointer}
-.primary{background:var(--blue);color:white} .secondary{background:#e8f0f4;color:var(--blue2)}
-select{border:1px solid #cbd5df;background:white;padding:7px 10px;min-width:280px}
-main{padding:18px 16px 38px}
-.info{background:#fff7e8;border:1px solid #ead39c;border-radius:10px;padding:11px 13px;font-size:13px;line-height:1.45;margin-bottom:15px}
-.stats{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
-.stat{background:white;border:1px solid var(--line);padding:9px 12px;border-radius:8px;font-size:13px}
-.dir{margin:24px 0 10px;padding-bottom:8px;border-bottom:2px solid var(--blue);font-size:19px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
-.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px;min-width:0}
-.card h2{font-size:16px;margin:0 0 4px;line-height:1.3}
-.ind{font-size:13px;color:#445164;margin-bottom:8px;line-height:1.4}
-.meta{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:9px}
-.pill{font-size:12px;background:#eef3f6;border:1px solid #dae3e9;padding:5px 7px;border-radius:999px}
-.formula{background:#f8fafb;border:1px solid #e4e9ee;padding:9px;border-radius:8px;font-size:12px;line-height:1.42;margin-bottom:10px;overflow-wrap:anywhere}
-.fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}
-.fields.one{grid-template-columns:1fr}
-label{font-size:12px;font-weight:700;color:#4b5768;display:block;margin-bottom:4px}
-input{width:100%;min-height:42px;border:1px solid #cbd5df;border-radius:8px;padding:8px 9px;font-size:16px}
-.result{border-top:1px solid #edf0f2;margin-top:11px;padding-top:10px;display:flex;justify-content:space-between;align-items:flex-end;gap:8px}
-.val{font-size:25px;font-weight:800} .lbl{font-size:11px;color:var(--muted)}
-.status{font-size:11px;font-weight:800;border-radius:999px;padding:6px 8px}
-.ok{background:#e8f5ee;color:var(--ok)} .bad{background:#fdecea;color:var(--bad)} .warn{background:#fff3d9;color:var(--warn)}
-.note{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.4}
-.quad{margin-top:12px;border-top:1px dashed #d7dee5;padding-top:11px}
-.quad-title{font-size:12px;font-weight:800;color:#334155;margin-bottom:8px}
-.quad-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-.quad-box{background:#f8fafb;border:1px solid #e5e9ee;border-radius:8px;padding:8px}
-.quad-box strong{display:block;font-size:12px;margin-bottom:6px}
-.quad-box input{min-height:38px;font-size:14px}
-.gapbox{margin-top:9px;background:#eef5f8;border:1px solid #d8e7ed;border-radius:8px;padding:9px;font-size:12px;line-height:1.45}
-.digisus{margin-top:10px;background:#f7f5ff;border:1px solid #ded8f5;border-radius:8px;padding:10px}
-.digisus-title{font-size:12px;font-weight:800;margin-bottom:8px}
-.digisus-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.digisus select{width:100%;min-width:0;min-height:38px}
-.digi-result{font-size:18px;font-weight:800;margin-top:4px}
-.digi-note{font-size:11px;color:#5e5873;margin-top:6px;line-height:1.4}
-
-/* Organização em dois cartões por linha */
-.dir-title{grid-column:1/-1}
-.card .meta{display:flex;flex-wrap:wrap;gap:6px 8px;margin-bottom:10px}
-.card .formula{margin:10px 0 12px}
-.card .inputs{gap:10px}
-.card .quad-box{background:#f8fafb;border:1px solid #dce5e9}
-.card .digisus{background:#f7f5ff}
-.card [data-digi-total]{min-height:28px}
-@media(max-width:1350px){
-  .grid{grid-template-columns:1fr}
-}
-@media(min-width:1351px){
-  .card h3{font-size:15px}
-  .card .desc,.card .indicator,.card .formula{font-size:12px}
-  .card .quad-title,.card .digisus-title{font-size:13px}
-  .card .quad-box{padding:10px}
-  .card input,.card select{font-size:13px;padding:7px 8px}
-  .card .digi-result{font-size:16px}
-}
-
-/* Ajustes de exibição: leitura em tela larga */
-.card h3{font-size:18px;line-height:1.35;margin-bottom:8px}
-.desc,.indicator,.formula{line-height:1.55}
-.formula{font-size:13px;padding:11px 13px}
-.quad{margin-top:16px;padding-top:16px}
-.quad-title{font-size:14px;margin-bottom:10px}
-.quad-box{padding:14px;border-radius:10px}
-.quad-box strong{font-size:13px}
-.gapbox{margin-top:14px;padding:12px 14px;font-size:13px}
-.digisus{margin-top:14px;padding:14px 16px}
-.digisus-title{font-size:14px}
-.digi-note{font-size:12px}
-input,select{font-size:14px;padding:9px 10px}
-label,.lbl{font-size:12px}
-@media(max-width:700px){
-  .quad-grid,.digisus-grid{grid-template-columns:1fr}
-}
-@media(max-width:800px){.quad-grid{grid-template-columns:1fr}}
-.summary{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:11px;padding:14px}
-table{width:100%;border-collapse:collapse;font-size:12px}
-th,td{border-bottom:1px solid #edf0f2;text-align:left;padding:7px;vertical-align:top}
-th{background:#f7f9fa}
-.search{flex:1;min-width:220px;min-height:42px;border:1px solid #cbd5df;border-radius:8px;padding:8px 10px;font-size:14px}
-@media(max-width:800px){header{position:static}.grid{grid-template-columns:1fr}.fields{grid-template-columns:1fr}select{min-width:0;width:100%}}
-@media print{header{position:static}.tools,.info{display:none}body{background:#fff}.card{break-inside:avoid}}
+.tools{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:14px}
+button,select,.btn-label{min-height:42px;border-radius:9px;font-size:14px;font-family:inherit;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;transition:all 0.18s ease-in-out;white-space:nowrap}
+button,.btn-label{border:1px solid transparent;padding:9px 15px;font-weight:700;cursor:pointer;user-select:none;text-decoration:none}
+button svg,.btn-label svg{flex-shrink:0;transition:transform 0.18s ease}
+button:hover svg,.btn-label:hover svg{transform:scale(1.1)}
+.primary{background:var(--blue);color:white;border-color:#12576e;box-shadow:0 2px 6px rgba(23,107,135,0.25)}
+.primary:hover{background:var(--blue2);transform:translateY(-2px);box-shadow:0 5px 14px rgba(15,81,104,0.35)}
+.secondary,.btn-label{background:#edf4f8;color:#154a5c;border-color:#d0e1ec;box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.secondary:hover,.btn-label:hover{background:#dbeaf2;color:#0b3644;border-color:#b5d4e5;transform:translateY(-2px);box-shadow:0 4px 10px rgba(0,0,0,0.07)}
+.btn-danger:hover{background:#fff0f0;color:#c92a2a;border-color:#f8c0c0}
+button:active,.btn-label:active{transform:translateY(0);box-shadow:none}
+select{border:1px solid #cbd5df;background:white;padding:7px 12px;min-width:280px;color:var(--text)}
+select:focus,.search:focus{outline:none;border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,107,135,0.15)}
+.status-badge{font-size:12px;font-weight:700;color:#154a5c;background:#e8f4f8;border:1px solid #c9e3ed;border-radius:20px;padding:6px 14px;display:inline-flex;align-items:center;gap:7px}
+.status-dot{width:8px;height:8px;border-radius:50%;background:#10b981;box-shadow:0 0 0 3px rgba(16,185,129,0.25);animation:pulse-dot 2s infinite}
+@keyframes pulse-dot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.2);opacity:0.8}}
 </style>
 </head>
 <body>
@@ -110,15 +41,28 @@ th{background:#f7f9fa}
   <div class="tools">
     <select id="filterDir"><option value="">Todas as diretrizes</option></select>
     <input class="search" id="search" placeholder="Buscar indicador, código ou palavra...">
-    <button class="primary" id="print">Imprimir / Salvar PDF</button>
-    <button class="secondary" id="exportData">Exportar backup</button>
-    <label class="secondary" style="cursor:pointer;display:inline-flex;align-items:center">
+    <button class="primary" id="print">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      Imprimir / Salvar PDF
+    </button>
+    <button class="secondary" id="exportData">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+      Exportar backup
+    </button>
+    <label class="btn-label" id="lblImport">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
       Importar backup
       <input id="importData" type="file" accept=".json,application/json" style="display:none">
     </label>
-    <button class="secondary" id="btnHistory">Histórico</button>
-    <button class="secondary" id="clear">Limpar dados salvos</button>
-    <span id="saveStatus" style="font-size:12px;font-weight:700;opacity:.9">Dados salvos automaticamente neste navegador</span>
+    <button class="secondary" id="btnHistory">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+      Histórico
+    </button>
+    <button class="secondary btn-danger" id="clear">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:6px"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+      Limpar dados
+    </button>
+    <span class="status-badge"><span class="status-dot"></span><span id="saveStatus">Dados salvos automaticamente</span></span>
   </div>
 </div>
 </header>
